@@ -22,11 +22,13 @@ public class App {
 		double tax=0;
 		if(employee instanceof Manager)
 		{
-			tax= 12.0;
+			Manager manager = (Manager)employee;
+			tax= (12.0/100)*manager.getSalary();
 		}
 		if(employee instanceof Engineer)
 		{
-			tax=11.9;
+			Engineer engineer= (Engineer)employee;
+			tax=(11.9/100)*engineer.getSalary();
 		}
 		return tax;
 	}
