@@ -35,7 +35,7 @@ public class Friend {
 	}
 	@Override
 	public String toString() {
-		return "Friend [friendnum=" + friendnum + ", name=" + name + ", friendType=" + friendType + "]";
+		return "Friend [friendnum=" + friendnum + ", name=" + name + ", friendType=" + friendType.getMessage() + "]";
 	}
 	
 	
