@@ -23,6 +23,7 @@ public class TesterCompare {
 		PriorityComparator priorityComparator=new PriorityComparator();
 		Set<Todo> set= new TreeSet<Todo>(priorityComparator);
 		
+		
 		do {
 			
 			System.out.println("Choose from the options below:");
@@ -30,6 +31,7 @@ public class TesterCompare {
 			System.out.println("2. Remove:");
 			System.out.println("3. Update:");
 			System.out.println("4. Display:");
+			System.out.println("0. Exit:");
 			
 			choice=scanner.nextInt();
 			switch(choice) {
@@ -40,22 +42,65 @@ public class TesterCompare {
 				int priority=scanner.nextInt();
 				set.add(new Todo(UUID.randomUUID().toString(),desc,priority));
 				System.out.println("Created Sucessfully...");
+				
 				break;
 				
-			case 2:
+	 	    case 2:
+	 	    	System.out.println("Enter Todo id: ");
+	 			String id = scanner.next();
+	 			Todo todo = null;
+	 			Iterator<Todo> i = set.iterator();
+	 			while(i.hasNext()) {
+	 				todo = i.next();
+	 				if(todo.getTodoId().equals(id)) {
+	 					System.out.println("found: " + todo);
+	 					set.remove(todo);
+	 					System.out.println("removed.");
+	 					break;
+	 				}
+	 				else
+	 				{
+	 					System.out.println("Invalid id");
+	 					break;
+	 				}
+	 			}
 			    
 
 				break;
-			case 3:
-				
-				
+		    case 3:
+		    	System.out.println("Enter Todo id: ");
+	 			String id1 = scanner.next();
+	 			Todo todo1 = null;
+	 			Iterator<Todo> j = set.iterator();
+	 			while(j.hasNext()) {
+	 				todo1 = j.next();
+	 				if(todo1.getTodoId().equals(id1)) {
+	 					System.out.println("found: " + todo1);
+	 					set.remove(todo1);
+	 				    System.out.print("Enter the description: ");
+	 					String desc1=scanner.next();
+	 					System.out.print("Enter the priority: ");
+	 					int priority1=scanner.nextInt();
+	 					set.add(new Todo(UUID.randomUUID().toString(),desc1,priority1));
+	 					System.out.println("Updated Sucessfully...");
+	 						break;
+	 				}
+	 				else
+	 				{
+	 					System.out.println("Invalid id");
+	 				}
+	 				
+	 			}
+	 			break;
 				
 			case 4:
 				for(Todo t:set)
 				{
 					System.out.println(t);
 				}
+			
 				break;
+				
 			case 0:
 			
 				System.out.println("Exit from System. Bye..");
@@ -66,7 +111,7 @@ public class TesterCompare {
 			default:
 				System.out.println("Invalid Choice Try Again.");
 				break;			
-			
+			}	
 		}while(choice!=0);
 		
 		
@@ -87,9 +132,7 @@ public class TesterCompare {
 		System.out.println(s1);
         */
 		
-		
-		
-		
-	}
 
-}
+	}
+	
+}	
