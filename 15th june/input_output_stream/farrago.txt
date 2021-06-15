@@ -1,0 +1,6 @@
+anatomy
+dexter
+cat
+dog
+apple
+kitten

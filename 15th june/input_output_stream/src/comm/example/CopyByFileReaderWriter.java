@@ -15,10 +15,16 @@ public class CopyByFileReaderWriter {
         BufferedReader   inputStream = new BufferedReader(in);
         PrintWriter    outputStream = new PrintWriter(out);
          
-        String l;
+        String l,m="";
         while ((l = inputStream.readLine()) != null) {
-            System.out.println(l);
-            outputStream.println(l);
+        	// this is code snippet to make the file encrypted. after every letter,
+        	//it will shift 2 spaces ahead and show in output file. ex: abc --> cde
+        	for (char c :l.toCharArray()) {
+        	m += Character.toString((char) (((c - 'a' + 2) % 26) + 'a'));	
+        	     	}
+        	System.out.println(m);
+            outputStream.println(m);
+            m="";
         }
             
         in.close();
