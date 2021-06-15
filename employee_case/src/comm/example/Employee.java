@@ -1,95 +1,87 @@
 package comm.example;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.*;
 
-import java.text.DateFormat;
-
-
-public class Employee implements Comparable {
- 
-	
+public class Employee implements Comparable<Employee>{
+	static int count;
 	private int id;
 	private String name;
+	public Employee(String name, String department, Date dateOfJoining, int age, int salary) {
+		super();
+		id=++count;
+		this.name = name;
+		this.department = department;
+		this.dateOfJoining = dateOfJoining;
+		this.age = age;
+		this.salary = salary;
+	}
 	private String department;
+	private Date dateOfJoining;
 	private int age;
 	private int salary;
-	Date dateOfJoining = new Date();
-	public Employee() {
-		super();
+	public static int getCount() {
+		return count;
 	}
-	public Employee(int id, String name, String department, int age, int salary, Date dateOfJoining) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.department = department;
-		this.age = age;
-		this.salary = salary;
-		this.dateOfJoining = dateOfJoining;
+	public static void setCount(int count) {
+		Employee.count = count;
 	}
-	protected int getId() {
+	public int getId() {
 		return id;
 	}
-	protected void setId(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
-	protected String getDepartment() {
+	public String getDepartment() {
 		return department;
 	}
-	protected void setDepartment(String department) {
+	public void setDepartment(String department) {
 		this.department = department;
 	}
-	protected int getAge() {
-		return age;
-	}
-	protected void setAge(int age) {
-		this.age = age;
-	}
-	protected int getSalary() {
-		return salary;
-	}
-	protected void setSalary(int salary) {
-		this.salary = salary;
-	}
-	protected Date getDateOfJoining() {
+	public Date getDateOfJoining() {
 		return dateOfJoining;
 	}
-	protected void setDateOfJoining(Date dateOfJoining) {
+	public void setDateOfJoining(Date dateOfJoining) {
 		this.dateOfJoining = dateOfJoining;
 	}
-	
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		Employee emp=null;
-		if(o instanceof Employee)
-		{
-			emp=(Employee)o;
-		}
-		if(this.salary>emp.salary)
-		{
-			return -1;
-		}
-		else
-		{
-			return 1;
-		}
-	 //return 0;
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
 	}
 	@Override
 	public String toString() {
-		String s = String.format("%-15s %-30s %-30s %-10s %-10s %10s %10s\n",id,name,department,age,salary,dateOfJoining);
-		return s;
+		System.out.format("%-15s %-30s %-30s %-20s %-10s %-10s\n",id,name,department,new SimpleDateFormat("MM/dd/yyyy").format(dateOfJoining),age,salary);
+		return "";
+		
 	}
 	
+	public int compareTo(Employee e)
+	{
+		if(salary==e.salary)
+			return 0;
+		else if(salary>e.salary)
+			return 1;
+		else
+			return -1;
+	}
+		
 	
 	
 	
 	
+
 }
