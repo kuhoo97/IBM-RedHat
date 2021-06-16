@@ -6,25 +6,21 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 
-
-public class Student implements Serializable,Comparable{
+public class Student implements Serializable{
 	private String id;
 	private String name;
 	private String grade;
 	
 	
 	
-	@Override
-	public int compareTo(Object o) {
-		return grade.compareTo(((Student)o).getGrade());
-	
-	}
-	
+
 
 }

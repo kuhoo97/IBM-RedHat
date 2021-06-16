@@ -18,7 +18,7 @@ public class StudentResultImpl implements StudentResult {
 	private ObjectInputStream objectInputStream;
 
 @Override
-	public void createStudentAndSave(Student student) throws IOException{
+	public void createStudentAndSave(Set<Student> student) throws IOException{
 
 		fileOutputStream=new FileOutputStream("student.ser");
 		objectOutputStream=new ObjectOutputStream(fileOutputStream);
@@ -26,18 +26,22 @@ public class StudentResultImpl implements StudentResult {
 		
 	}
 
+@Override
+public void displayStudentFromFile() throws IOException, ClassNotFoundException {
+	// TODO Auto-generated method stub
+	
+	fileInputStream=new FileInputStream("student.ser");
+	objectInputStream =new ObjectInputStream(fileInputStream);
+	Set<Student> set = (Set<Student>)objectInputStream.readObject();
+	//return set;
+	System.out.println(set);
+	
+}
+
+
 
 	
-	@Override
-	public Student displayStudentFromFile() throws IOException, ClassNotFoundException {
 
-		fileInputStream=new FileInputStream("student.ser");
-		objectInputStream =new ObjectInputStream(fileInputStream);
-		@SuppressWarnings("unchecked")
-		Set<Student> set = (Set<Student>)objectInputStream.readObject();
-		return (Student) set;
-		
-	}
 	
 	
 
