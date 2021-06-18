@@ -63,6 +63,24 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return list;
 	}
 
+	@Override
+	public List<Employee> findById(Integer id) throws SQLException {
+		// TODO Auto-generated method stub
+		
+		list = new ArrayList<Employee>();
+		PreparedStatement preparedStatement=connection.prepareStatement("select * from employee where id=?");
+		preparedStatement.setInt(1, id);
+		ResultSet resultSet=preparedStatement.executeQuery();
+		while(resultSet.next())
+		{
+			list.add(new Employee(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4)));
+			
+		}
+		
+		return list;
+		
+	}
+
 	
 	
 	

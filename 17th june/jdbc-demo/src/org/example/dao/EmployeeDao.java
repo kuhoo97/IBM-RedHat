@@ -13,4 +13,6 @@ public interface EmployeeDao {
 public Employee createEmployee(Employee employee) throws SQLException;
 	
 	public List<Employee> getAllEmployees()throws SQLException;
+	
+	public List<Employee> findById(Integer id)throws SQLException;
 }

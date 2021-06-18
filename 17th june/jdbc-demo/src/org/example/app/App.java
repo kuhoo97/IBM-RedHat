@@ -17,7 +17,7 @@ import org.example.service.EmployeeServiceImpl;
 public class App {
 
 	public static void main(String[] args) throws SQLException, NumberFormatException, IOException {
-	
+	// **********this is without create employee*************
 		// After adding service layer
 /*		EmployeeService service=new EmployeeServiceImpl();
 		List<Employee> employees=service.getAllEmployees();
@@ -36,9 +36,14 @@ public class App {
 		do {
 
 			System.out.println("1. Create a new employee");
-			System.out.println("2. display all available employees");
-			System.out.println("0. exit");
-			System.out.print("enter your choice: ");
+			
+		    System.out.println("2. display all available employees");
+			
+		    System.out.println("3. Find employee by id");
+		   
+		    System.out.println("0. exit");
+			
+		    System.out.print("enter your choice: ");
 			choice = Integer.parseInt(bufferedReader.readLine());
 
 			switch (choice) {
@@ -58,6 +63,25 @@ public class App {
 				while (iterator.hasNext())
 					System.out.println(iterator.next());
 				break;
+				
+				
+			case 3:
+				System.out.print("enter id: ");
+				Integer id = Integer.parseInt(bufferedReader.readLine());
+				List<Employee> list=service.findById(id);
+				if(list.isEmpty())
+				{
+					System.out.println("NO such record found with id: "+id);
+				}
+				else
+				{
+					for(Employee e:list)
+					{
+						System.out.println(e);
+					}
+				}
+				break;
+				
 			case 0:
 				System.out.println("Bye!");
 				System.exit(0);
