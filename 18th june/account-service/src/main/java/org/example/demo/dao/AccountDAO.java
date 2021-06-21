@@ -10,8 +10,8 @@ public interface AccountDAO {
 	
 	public Account createAccount(Account account)throws SQLException;
 	public List<AccountDTO> displayAllAccount()throws SQLException;
-	public void deposite(double amount) throws SQLException;
-	public double withdrawl(double amount) throws SQLException;
+	public void deposit(double amount) throws SQLException;
+	public double withdraw(double amount) throws SQLException,AccountNotValidException;
 	
 	
 	

@@ -19,7 +19,7 @@ public class AccountDTO {
 	private String accountId;
 	private String accountType;
 	private String accountHolderName;
-	private String  addressLine1;
+	private String addressLine1;
 	private String addressLine2;
 	private String city;
 	private double balance;
