@@ -24,7 +24,7 @@ public class MySessionFactory {
 		properties.put("hibernate.connection.url", "jdbc:mysql://localhost:3306/hr");
 		properties.put("hibernate.connection.username","root");
 		properties.put("hibernate.default_schema", "hr");
-
+		//properties.put("hibernate.current_session_context_class", "thread");
 	}
 
 	public static MySessionFactory createMySessionFactory() {
