@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean name="theCoach" class="org.example.demo.model.SwimmingCoach"/>
+<bean name = "emp" class="org.example.demo.model.Employee">
+<constructor-arg index="0" value="1"/>
+<constructor-arg index="1" value="First"/>
+</bean>
+
+<bean name="theCD" class="org.example.demo.model.InternationalCD">
+<constructor-arg index="0" value="100"/>
+<constructor-arg index="1" value="Titanic"/>
+<constructor-arg index="2" value="French"/>
+</bean>
+
+<!-- <bean name="newCD" class="org.example.demo.model1.SpecialeditionCD">
+<constructor-arg index="0" value="1"/>
+<constructor-arg index="1" value="Old Songs"/>
+<constructor-arg index="2" value="2D"/>
+</bean> -->
+
+<!-- <bean name="newCD1" class="org.example.demo.model1.InternationalcD">
+<constructor-arg index="0" value="2"/>
+<constructor-arg index="1" value="New Int Songs"/>
+<constructor-arg index="2" value="English"/>
+</bean> -->
+
+<bean name = "theDay" class = "org.example.demo.model1.InternationalcD">
+<constructor-arg name ="fortuneService" ref="yourFortuneService"/>
+</bean>
+
+<bean name = "theDay1" class ="org.example.demo.model1.SpecialeditionCD" >
+<property name="fortuneService" ref="myFortuneService"/>
+</bean>
+<bean name = "myFortuneService" class="org.example.demo.model1.SadFortuneService"/>
+<bean name = "yourFortuneService" class="org.example.demo.model1.HappyFortuneService"/>
+
+
+<bean name = "theCustomer" class="org.example.demo.model2.Customer">
+
+<property name="customerID" value="10"/>
+<property name="customerName" value="Pooja Yadav"/>
+<property name="address" ref="theAddress"/>
+<property name="branch" ref="theBranch"/>
+</bean>
+
+ <bean name="theAddress" class="org.example.demo.model2.Address">
+	 <constructor-arg name="addressLine1" value="Telengana"/>
+	 <constructor-arg name="addressLine2" value="India"/>
+	 <constructor-arg name="city" value="Hyderabad"/>
+	 <constructor-arg name="zipCode" value="56001"/>
+	 </bean>
+
+<bean name="theBranch" class="org.example.demo.model2.Branch">
+	 <property name="branchId" value="10"/>
+	 <property name="branchName" value="branch-10"/>
+	 <property name="branchAddress" value="address-10"/>
+	 </bean>
+
+</beans>
