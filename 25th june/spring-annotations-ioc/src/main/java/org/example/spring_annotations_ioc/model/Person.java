@@ -1,16 +1,27 @@
 package org.example.spring_annotations_ioc.model;
 
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component(value = "thePerson")
+//we use use when we want to create a new object everytime
+@Scope(value="prototype")
 public class Person {
 
-	
+	@Value("101") 
 	private Integer personId;
+	@Value("Marry")
 	private String firstName;
+	@Value("Public")
 	private String lastName;
+	@Value("marry@email.com")
 	private String email;
+	@Value("${person.team}")
+	private String team;
+	@Value("${person.country}")
+	private String country;
 	public Person() {
 		super();
 	}
