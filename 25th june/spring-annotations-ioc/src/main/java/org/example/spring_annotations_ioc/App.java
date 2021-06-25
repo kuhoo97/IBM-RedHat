@@ -1,6 +1,9 @@
 package org.example.spring_annotations_ioc;
 
 import org.example.spring_annotations_ioc.model.Person;
+import org.example.spring_annotations_ioc.model1.Coach;
+import org.example.spring_annotations_ioc.model1.CricketCoach;
+import org.example.spring_annotations_ioc.model1.SwimmingCoach;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,7 +17,9 @@ public class App
     {
     	try {
     		@SuppressWarnings("resource")
-			ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+    		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+    	/*
     		Person person=context.getBean("person",Person.class);
     		//@Values values will be printed as parameterized constructor
     		System.out.println(person);
@@ -31,8 +36,20 @@ public class App
 			  Person person1 = context.getBean("person", Person.class);
 			  System.out.println(person1); 
 			  System.out.println(person==person1);
-			 
-    		
+	*/		 
+    		///Coach////////////// for cricket
+			  
+    		Coach thecoach=context.getBean("cricketCoach",CricketCoach.class);
+			System.out.println(thecoach.getDailyworkOut());
+			System.out.println(thecoach.getDailyFortune());
+			
+			/// swimming
+			
+			Coach thecoach1=context.getBean("swimmingCoach",SwimmingCoach.class);
+			System.out.println(thecoach1.getDailyworkOut());
+			System.out.println(thecoach1.getDailyFortune());
+			
+			  
 		} catch (Exception e) {
 			e.printStackTrace();
 			
