@@ -15,7 +15,7 @@ public class App
     	try {
     		@SuppressWarnings("resource")
 			ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
-    		Person person=context.getBean("thePerson",Person.class);
+    		Person person=context.getBean("person",Person.class);
     		//@Values values will be printed as parameterized constructor
     		System.out.println(person);
     		
@@ -27,9 +27,11 @@ public class App
     		
     		//After removing Scope person==person1 will come true. Because same object will be updated
 			
-    		Person person1 = context.getBean("thePerson", Person.class);
-			System.out.println(person1);
-			System.out.println(person==person1);
+			
+			  Person person1 = context.getBean("person", Person.class);
+			  System.out.println(person1); 
+			  System.out.println(person==person1);
+			 
     		
 		} catch (Exception e) {
 			e.printStackTrace();

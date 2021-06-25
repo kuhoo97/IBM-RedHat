@@ -1,13 +1,14 @@
 package org.example.spring_annotations_ioc.model;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component(value = "thePerson")
+@Component
 //we use use when we want to create a new object everytime
-@Scope(value="prototype")
+//@Scope(value="prototype")
 public class Person {
 
 	@Value("101") 
@@ -22,14 +23,26 @@ public class Person {
 	private String team;
 	@Value("${person.country}")
 	private String country;
+	
+	// Attribute level DI (make sure no constructor and setter method if using this approach
+	// @Autowired
+	
+	private Address address;
 	public Person() {
 		super();
 	}
-	@Override
-	public String toString() {
-		return "Person [personId=" + personId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + "]";
+	
+	// constructor injection
+	@Autowired
+	
+	public Person(Address address) {
+		super();
+		this.address = address;
 	}
+
+
+
+	
 	public Integer getPersonId() {
 		return personId;
 	}
@@ -54,6 +67,22 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	// setter DI
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	@Override
+	public String toString() {
+		return "Person [personId=" + personId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+				+ email + ", team=" + team + ", address=" + address + ", country=" + country + "]";
+	}
+	
 	
 	
 	
