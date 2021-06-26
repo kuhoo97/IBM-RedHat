@@ -1,5 +1,0 @@
-1. Spring ioc - Beans
-2. Constructor injection
-3. Setter injection
-4. XML file for spring config is available in 3 version hence we downloaded that
-5. used beans to perform various operations
