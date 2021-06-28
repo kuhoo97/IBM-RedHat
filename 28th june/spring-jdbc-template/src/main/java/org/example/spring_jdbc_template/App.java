@@ -1,6 +1,7 @@
 package org.example.spring_jdbc_template;
 
 import java.io.BufferedReader;
+
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Random;
@@ -13,6 +14,7 @@ import org.example.spring_jdbc_template.service.BookServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.example.spring_jdbc_template.dao.BookDaoImpl;
+import org.example.spring_jdbc_template.BookNotFoundException;
 /**
  * Hello world!
  *
@@ -46,6 +48,9 @@ try {
 			do {
 				System.out.println("1.Add A New Book");
 				System.out.println("2.Display All Book");
+				System.out.println("3. Find Book By ID");
+				System.out.println("4. Update Book By ID");
+				System.out.println("5.Delete the book");
 				System.out.println("0: Exit");
 				System.out.print("your choice: ");
 				choice=Integer.parseInt(bufferedReader.readLine());
@@ -64,6 +69,40 @@ try {
 					{
 						book.displayBook();
 					}
+					break;
+				
+				case 3:
+					
+					try {
+
+						System.out.print("Book Id: ");
+						int id = Integer.parseInt(bufferedReader.readLine());
+						List<Book> b = service.findBookById(id);
+						if (b.isEmpty())
+
+							throw new BookNotFoundException("book with the given id not found.");
+						else
+						{
+							System.out.println(b);
+						}
+					}
+
+					catch (BookNotFoundException e) {
+						System.err.println(e.getMessage());
+					}
+					
+					break;
+				case 4:
+					System.out.print("Book Id: ");
+					int id = Integer.parseInt(bufferedReader.readLine());
+					System.out.println(service.updateBookById(id));
+					break;
+				
+				case 5:
+					
+					System.out.print("Book Id: ");
+					id = Integer.parseInt(bufferedReader.readLine());
+					service.deleteBook(id);
 					break;
 
 				default:
