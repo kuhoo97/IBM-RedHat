@@ -1,0 +1,10 @@
+Bracket Pair Colorizer 2
+npm
+npm Intellisense
+ESLint
+Code Spell Checker
+Auto Close Tag
+Path Intellisense
+MarkdownLint
+Material Icon Theme
+DotENV
