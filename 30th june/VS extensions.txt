@@ -8,3 +8,4 @@ Path Intellisense
 MarkdownLint
 Material Icon Theme
 DotENV
+Live server
