@@ -103,9 +103,9 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		employee.setFirstName(firstName);
 		employee.setLastName(lastName);
 		employee.setEmail(email);
-		
+		currentSession.getTransaction().begin();
 		currentSession.merge(employee);
-		
+		currentSession.getTransaction().commit();
 		
 		EmployeeResponseModel model = modelMapper.map(employee, EmployeeResponseModel.class);
 		return model;
@@ -128,16 +128,18 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		 * currentSession.getTransaction().commit(); delEmployee =
 		 * modelMapper.map(model, EmployeeResponseModel.class);
 		 */
-		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("select E from Employee E where employeeId=:empId").setString("empId",employeeId);
+		Session currentSession = sessionFactory.openSession();
+		Query query=currentSession.createQuery("select E from Employee E where employeeId=:empId").setString("empId",employeeId);
 		@SuppressWarnings("unchecked")
 		List<Employee> list=query.getResultList();
 		
 		Employee employee=list.get(0);
-		session.remove(employee);
+		currentSession.getTransaction().begin();
+		currentSession.remove(employee);
+		currentSession.getTransaction().commit();
 		
 		//EmployeeResponseModel model = modelMapper.map(employee, EmployeeResponseModel.class);
-		System.out.println("Successfully Deleted book");
+		System.out.println("Successfully Deleted ");
 		
 		
 		
