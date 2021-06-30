@@ -73,3 +73,8 @@ app.listen(3000,()=>{
 
 /////you can use json extension on edge browser or postman too. both will 
 //give output in json format
+
+
+
+//////also if you have deleted nodemodules folder files, after opening VS, just type npm install,
+//it will install all the modules again
