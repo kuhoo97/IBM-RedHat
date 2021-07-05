@@ -1,3 +1,4 @@
+//get and post method for customers and genres for creating database in mongodb
 const mongoose = require('mongoose');
 const genres = require('./routes/genres');
 const customers = require('./routes/customers');
