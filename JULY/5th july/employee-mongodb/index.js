@@ -1,4 +1,4 @@
-//without importing existing json file, created a collection of employee in mongodb 
+//without importing existing json file, created a collection of employee in mongodb
 const mongoose=require('mongoose');
 mongoose.connect('mongodb://localhost/employee',()=>{
     console.log('connection successful');
