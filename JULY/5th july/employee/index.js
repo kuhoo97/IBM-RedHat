@@ -1,4 +1,4 @@
-
+//crude operations using joi and express routing
 const employeeRouter=require('./routes/admin');
 const express = require('express');
 const app = express();
