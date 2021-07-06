@@ -26,7 +26,7 @@ router.get('/api/genres/:id',(req,res)=>{
 
 });
 
-// display
+// add to existing
 
 router.post('/api/genres',(req,res,next)=>{
     const { error } = validateGenre(req.body); 
