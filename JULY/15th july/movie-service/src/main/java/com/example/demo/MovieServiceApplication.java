@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import com.example.demo.entity.Genre;
 import com.example.demo.entity.Movie;
@@ -15,6 +17,8 @@ import com.example.demo.repo.MovieRepository;
 
 @SpringBootApplication
 @EnableEurekaClient
+@EnableCircuitBreaker
+@EnableFeignClients
 public class MovieServiceApplication implements CommandLineRunner{
 
 	private MovieRepository movieRepository;

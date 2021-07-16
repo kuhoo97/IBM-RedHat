@@ -52,12 +52,20 @@ public class RentController {
 		}
 		return ResponseEntity.status(HttpStatus.CREATED).body(rentService.createRent(rentEntity));
 	}
-	
+	/*
 	@GetMapping("/rents")
-	public ResponseEntity<?> displayAllRent()
+	public ResponseEntity<List<RentEntity>> displayAllRent()
 	{
 		return ResponseEntity.ok(rentService.displayAllRent());
 	}
+	*/
+	
+	@GetMapping("/rents")
+	public List<RentEntity> displayAllRent()
+	{
+		return rentService.displayAllRent();
+	}
+
 	
 	@GetMapping("/rents/displaymovie")
 	@HystrixCommand(fallbackMethod = "movieFallBack")
